@@ -1,0 +1,45 @@
+.font{
+    font-family: 'Amatic SC', cursive;
+}
+
+.contenedorMain{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    min-height: 100%;
+
+    /*background-attachment: fixed;*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    
+    background-image: url("../images/frame.jpg");
+}
+
+html {
+    height: 100%;
+}
+
+.separa{
+    margin-top: 7%;
+}
+
+.title{
+    color: white;
+}
+
+.titleRed{
+    color: #ee2638;
+}
+
+@media screen and (max-width: 600px) {
+    .contenedorMain{
+        background-image: url("../images/chopfondo.jpg");
+        
+    }
+}
+
+.punto{
+    font-size: 32px;
+}
+  

@@ -1,0 +1,402 @@
+.nav-link , .titulo{
+    color: white !important;
+    font-size: 24px;
+    margin-left: 5%;
+    font-weight: bold;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.format{
+    font-family: 'Amatic SC', cursive;
+    color: white;
+    letter-spacing: 3px;
+}
+
+.enlaceVer{
+    color: white !important;
+}
+
+.mainC{
+    margin-top: 3%;
+    font-family: 'Amatic SC', cursive;
+}
+
+.ttle{
+    text-align: left;
+    color: #ee2638 !important;
+    font-size: 48px;
+}
+
+.detalle2{
+    font-size: 28px;
+    text-align: left;
+}
+
+.detalle{
+    font-size: 28px;
+    text-align: center;
+    color: white;
+    background-color: #ee2638;
+    border-radius: 15px;
+}
+
+.imgrest{
+    width: 300px;
+    height: 270px;
+    border-radius: 15px;
+    display: block;
+    margin: auto;
+}
+
+.format2{
+    font-family: 'Amatic SC', cursive;
+    color: black;
+    letter-spacing: 3px;
+}
+
+.formContPrin{
+    padding-left: 1% !important;
+    padding-right: 25% !important;
+}
+
+.formContPrin2{
+    padding-left: 1% !important;
+    padding-right: 25% !important;
+    margin-top: 7%;
+}
+
+.inputCont{
+    text-align: center;
+    margin-top: 3%;
+}
+
+.netCB{
+    width: 50px;
+}
+
+.nav-link{
+    background-color: white;
+    color: #ee2638 !important;
+    border-radius: 15px;
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+    font-size: 18px;
+}
+
+.main2{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.bgRed{
+    background-color: #ee2638 !important;
+}
+
+.align > p{
+    text-align: center;
+}
+
+.chop{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    /* The image used */
+    background-image: url("../images/fondoRegistro.jpg");
+    min-height: 646px;
+    padding-top: 3%;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contDetalles{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    /* The image used */
+    background-image: url("../images/fondodetalle.jpg");
+    min-height: 646px;
+    padding-top: 3%;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.chop2{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    /* The image used */
+    background-image: url("../images/entracuenta.jpg");
+    min-height: 646px;
+    padding-top: 3%;
+
+    color: black !important;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contForm{
+    margin-top: 3%;
+}
+
+.main{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    /* The image used */
+    background-image: url("../images/prueba.jpg");
+
+    /* Set a specific height */
+    min-height: 646px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mainSuggestions{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    /* The image used */
+    background-image: url("../images/suggestion.jpg");
+
+    /* Set a specific height */
+    min-height: 140px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.portada{
+    text-align: center;
+}
+
+.catch{
+    margin-top: 12%;
+    color: white;
+    letter-spacing: 3px;
+    font-size: 60px;
+    font-family: 'Amatic SC', cursive;
+}
+.catch3{
+    /*margin-top: 12%;*/
+    color: white;
+    letter-spacing: 3px;
+    font-size: 60px;
+    font-family: 'Amatic SC', cursive;
+}
+.catch5{
+    /*margin-top: 12%;*/
+    color: white;
+    letter-spacing: 3px;
+    font-size: 24px;
+    font-family: 'Amatic SC', cursive;
+    text-align: left;
+}
+
+.catch4{
+    /*margin-top: 12%;*/
+    color: white;
+    letter-spacing: 3px;
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+    color: #ee2638;
+}
+
+.catch2{
+    color: black;
+    letter-spacing: 3px;
+    font-size: 60px;
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+}
+
+.inputText{
+    width: 30%;
+    height: 35px;
+}
+
+.afterCatch{
+    color: white;
+    margin-bottom: 0px;
+    font-size: 32px;
+    font-family: 'Amatic SC', cursive;
+}
+
+.usermenu{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    /* The image used */
+    background-image: url("../images/vegetalesTable.jpg");
+    min-height: 646px;
+    padding-top: 3%;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contenedorAll{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    /* The image used */
+    background-image: url("../images/vegetalesTable.jpg");
+    min-height: 660px;
+    padding-top: 3%;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.titleAll{
+    font-size: 48px;
+    color: #ee2638;
+    text-align: center;
+}
+
+.titleAll2{
+    font-size: 48px;
+    color: white;
+    text-align: center;
+}
+
+.centrar{
+    text-align: center;
+}
+
+.marginT{
+    margin-top: 8%;
+}
+
+#navbarNav{
+    justify-content: flex-end;
+    margin-right: 5%;
+}
+
+#prinNav{
+    background-color: #ee2638 !important;
+}
+
+.hello{
+    color: #ee2638;
+    margin-left: 2%;
+}
+
+.menupoints > li >a{
+    color: #ee2638;
+}
+
+.menupoints > li{
+    margin-right: 1%;
+}
+
+.fuente{
+    font-family: 'Amatic SC', cursive;
+    font-size: 28px;
+    color: white;
+}
+
+.pG{
+    font-size: 28px;
+}
+
+.left{
+    text-align: left;
+    padding-right: 50%;
+
+}
+
+.restaurantTitle{
+    color: #ee2638;
+}
+
+
+.desc{
+    margin-left: 1%;
+}
+
+.span{
+    color: white;
+    font-family: 'Amatic SC', cursive;
+}
+
+.favImg{
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+}
+
+.flexbody{
+    display: flex;
+    flex-direction: row;
+}
+
+.mtop{
+    margin-top: 7%;
+}
+
+.profilepic{
+    width: 50px;
+}
+
+.flexft{
+    display: flex;
+    flex-direction: row;
+}
+
+.generalFont{
+    font-family: 'Amatic SC', cursive;
+}
+
+.mtop5{
+    margin-top: 11%;
+}
+
+.wColor{
+    color: white;
+}
+
+footer{
+    color: white;
+    background: black;
+    margin-bottom: 0px;
+}
+
+footer > p{
+    padding-bottom: 1.5%;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.rowComment{
+    background-color: white;
+    border-radius: 25px;
+
+}
+
+textarea{
+    margin-left: 2%;
+    width: 98%;
+    resize: none;
+}
+
+.comm{
+    margin-left: 2%;
+    margin-top: 2%;
+}
