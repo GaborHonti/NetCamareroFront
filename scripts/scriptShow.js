@@ -18,7 +18,7 @@ var app = new Vue({
               this.info = response.data.data;
               this.cargaComments();
               if(this.token != null){
-              axios.get('/api/userinfo/', {
+              axios.get('http://netcamareroapi.test/api/userinfo/', {
                 headers: {
                     'Accept':'application/json',
                     'Authorization':'Bearer '+this.token}})
@@ -68,6 +68,27 @@ var app = new Vue({
                 console.log(error);
                 alert("fallo al crear comentario");
             });
+        },
+        postLike: function(){
+            
+
+            axios.post('http://netcamareroapi.test/api/restaurants/like',
+                /* Aqui va el contenido a enviar en el PUT */
+                { "user": this.miID ,
+                  "restaurant" : this.info.id},
+                { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token } })
+                .then(response => {
+                    console.log(response)
+                    if(response.data == 'ya esta liked'){
+                        alert(response.data)
+                    } else{
+                        location.reload();
+                    }
+                    
+                })
+                .catch(() => {
+                    console.log(response)
+                })
         },
         cargaComments: function(){
             axios.get('http://netcamareroapi.test/api/restaurants/comments/' + this.info.id)
