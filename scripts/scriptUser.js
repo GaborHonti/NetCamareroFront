@@ -76,6 +76,11 @@ var app = new Vue({
         salir: function(){
             localStorage.removeItem("token");
             location.reload();
-        }
+        },
+        moveURL : function(id){
+            console.log(id);
+            localStorage.setItem('id',id);
+            location.href='show.html';
+        },
     },
 })

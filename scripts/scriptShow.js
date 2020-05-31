@@ -54,6 +54,20 @@ var app = new Vue({
                 alert("fallo al crear favoritos");
             });
         },
+
+        quitafav: function(){
+            axios.delete('http://netcamareroapi.test/api/restaurants/borraFav/' + this.miID + "/" + this.info.id, {
+             })
+             .then(response => {
+                 console.log(response);
+                 this.esFav = '0';
+             })
+             .catch(error => {
+                 console.log(error);
+                 alert("fallo al borrar favoritos");
+             });
+        },
+
         postComment: function(){
             axios.post('http://netcamareroapi.test/api/comments/', {
                user: this.miID,
@@ -82,7 +96,7 @@ var app = new Vue({
                     if(response.data == 'ya esta liked'){
                         alert(response.data)
                     } else{
-                        location.reload();
+                        this.info.likes++;
                     }
                     
                 })
@@ -100,6 +114,10 @@ var app = new Vue({
                  console.log(error);
                  alert("fallo al cargar comentarios");
              });
-        }
+        },
+        salir: function(){
+            localStorage.removeItem("token");
+            location.reload();
+        },
     },
 })

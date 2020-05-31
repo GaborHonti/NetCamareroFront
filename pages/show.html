@@ -41,7 +41,7 @@
           <a class="nav-link" href="login.html">Entrar</a>
         </li>
         <li class="nav-item" v-if="esFav==-1">
-          <a class="nav-link" href="registrar.html">Registrar</a>
+          <a class="nav-link" href="register.html">Registrar</a>
         </li>
         <li class="nav-item" v-if="esFav==1 || esFav==0">
           <a class="nav-link" href="profile.html">Perfil</a>
@@ -84,7 +84,7 @@
                     <div class="col-12">
                         <button v-if="esFav == 0" class="btn btn-danger" @click="guardaFav()">Añadir a Favoritos</button>
                         <button v-if="esFav == 0 || esFav == 1" class="btn btn-danger" @click="postLike()">Like</button>
-                        <button v-if="esFav == 1" class="btn btn-success">¡Ya está en los Favoritos!</button>
+                        <button v-if="esFav == 1" class="btn btn-success" @click="quitafav()">¡Ya está en los Favoritos! Click para quitarlo</button>
                         <button v-if="esFav == -1" class="btn btn-warning">Logueate para añadir a Favoritos</button>
                         <button v-if="esFav == -1" class="btn btn-warning">Logueate para darle like</button>
                     </div>
