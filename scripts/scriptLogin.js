@@ -8,7 +8,7 @@ var aplicacion = new Vue({
     methods: {
         enviar: function(){
             //alert(this.nombre + ' , ' + this.mail + ' , ' + this.passwd)
-            axios.post('http://netcamareroapi.test/api/login/', {
+            axios.post(localStorage.getItem('URL_API') + 'login', {
                 email: this.mail,
                 password: this.passwd,
             })

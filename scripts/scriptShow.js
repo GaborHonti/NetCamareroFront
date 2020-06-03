@@ -13,18 +13,18 @@ var app = new Vue({
         //LOGIC ---> not logged: -1, not fav= 0, yes fav = 1
         this.token = localStorage.getItem("token");
            axios
-          .get('http://netcamareroapi.test/api/restaurants/'+this.id)
+          .get(localStorage.getItem('URL_API')+'restaurants/'+this.id)
           .then(response => {
               this.info = response.data.data;
               this.cargaComments();
               if(this.token != null){
-              axios.get('http://netcamareroapi.test/api/userinfo/', {
+              axios.get(localStorage.getItem('URL_API') +'userinfo', {
                 headers: {
                     'Accept':'application/json',
                     'Authorization':'Bearer '+this.token}})
                 .then((response) => {
                 this.miID = response.data.id;
-                axios.get('http://netcamareroapi.test/api/restaurants/esFav/'  + this.miID + '/' + this.info.id)
+                axios.get(localStorage.getItem('URL_API') + 'restaurants/esFav/'  + this.miID + '/' + this.info.id)
                 .then(response => {
                     this.esFav = response.data;
                 })
@@ -41,7 +41,7 @@ var app = new Vue({
     },
     methods: {
         guardaFav: function(){
-            axios.post('http://netcamareroapi.test/api/favs/', {
+            axios.post(localStorage.getItem('URL_API') + 'favs/', {
                user: this.miID,
                restaurant: this.info.id
             })
@@ -56,7 +56,7 @@ var app = new Vue({
         },
 
         quitafav: function(){
-            axios.delete('http://netcamareroapi.test/api/restaurants/borraFav/' + this.miID + "/" + this.info.id, {
+            axios.delete(localStorage.getItem('URL_API') + 'restaurants/borraFav/' + this.miID + "/" + this.info.id, {
              })
              .then(response => {
                  console.log(response);
@@ -69,7 +69,7 @@ var app = new Vue({
         },
 
         postComment: function(){
-            axios.post('http://netcamareroapi.test/api/comments/', {
+            axios.post(localStorage.getItem('URL_API') + 'comments', {
                user: this.miID,
                restaurant: this.info.id,
                content: this.commentContent
@@ -86,7 +86,7 @@ var app = new Vue({
         postLike: function(){
             
 
-            axios.post('http://netcamareroapi.test/api/restaurants/like',
+            axios.post(localStorage.getItem('URL_API') + 'restaurants/like',
                 /* Aqui va el contenido a enviar en el PUT */
                 { "user": this.miID ,
                   "restaurant" : this.info.id},
@@ -105,7 +105,7 @@ var app = new Vue({
                 })
         },
         cargaComments: function(){
-            axios.get('http://netcamareroapi.test/api/restaurants/comments/' + this.info.id)
+            axios.get(localStorage.getItem('URL_API') + 'restaurants/comments/' + this.info.id)
              .then(response => {
                  console.log(response.data.data);
                  this.comments = response.data.data;

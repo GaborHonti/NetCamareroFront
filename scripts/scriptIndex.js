@@ -37,7 +37,7 @@ var app = new Vue({
         },
         getRestaurantes: function(page){
             axios
-            .get('http://netcamareroapi.test/api/restaurants?page='+page)
+            .get(localStorage.getItem('URL_API') + 'restaurants?page='+page)
             .then(response => {(this.message = response.data.restaurantes.data),
           this.pagination = response.data.pagination})
         },

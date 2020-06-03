@@ -1,0 +1,1 @@
+localStorage.setItem('URL_API' , 'https://netcamarero-api.herokuapp.com/api/');

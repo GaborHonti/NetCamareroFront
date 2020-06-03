@@ -10,7 +10,7 @@ var aplicacion = new Vue({
     methods: {
         enviar: function(){
             //alert(this.nombre + ' , ' + this.mail + ' , ' + this.passwd)
-            axios.post('http://netcamareroapi.test/api/registro/', {
+            axios.post(localStorage.getItem('URL_API') +'registro', {
                 name: this.nombre,
                 email: this.mail,
                 password: this.passwd,

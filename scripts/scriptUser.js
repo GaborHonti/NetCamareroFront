@@ -34,13 +34,13 @@ var app = new Vue({
 
         },
         sacarDatosUser: function(){
-            axios.get('http://netcamareroapi.test/api/userinfo/', {
+            axios.get(localStorage.getItem('URL_API') + 'userinfo', {
                 headers: {
                     'Accept':'application/json',
                     'Authorization':'Bearer '+this.token}})
             .then((response) => {
                 this.info = response.data
-                axios.get('http://netcamareroapi.test/api/myFavs/' + this.info.id, {
+                axios.get(localStorage.getItem('URL_API') + 'myFavs/' + this.info.id, {
                 headers: {
                     'Accept':'application/json',
                     'Authorization':'Bearer '+this.token}})
@@ -49,7 +49,7 @@ var app = new Vue({
         },
         updateName: function(){
             if(this.nombreNew.trim() != ''){
-                axios.put('http://netcamareroapi.test/api/cambianombre',
+                axios.put(localStorage.getItem('URL_API') + 'cambianombre',
                 /* Aqui va el contenido a enviar en el PUT */
                 { "name": this.nombreNew ,
                   "id" : this.info.id},

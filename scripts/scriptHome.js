@@ -48,14 +48,14 @@ var app = new Vue({
         },
         cargaCategorias: function(){
             axios
-            .get('http://netcamareroapi.test/api/categories')
+            .get(localStorage.getItem('URL_API') + 'categories')
             .then((response) => {
                 this.categorias = response.data.data
             })
         },
         cargaLocalidades: function(){
             axios
-            .get('http://netcamareroapi.test/api/cities')
+            .get(localStorage.getItem('URL_API') + 'cities')
             .then((response) => {
                 this.localidades = response.data.data
             })

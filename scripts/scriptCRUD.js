@@ -66,11 +66,11 @@ var elemento = new Vue({
         onUpload() {
             const formData = new FormData();
             formData.append('image', this.selectedFile, this.finalFileName);
-            axios.post('http://netcamareroapi.test/api/uploadFile', formData)
+            axios.post(localStorage.getItem('URL_API') + 'uploadFile', formData)
         },
         cargaRestaurantes: function(){
             axios
-            .get('http://netcamareroapi.test/api/restaurantsAll')
+            .get(localStorage.getItem('URL_API') + 'restaurantsAll')
             .then((response) => {
                 this.datos = response.data.data
                 this.editRestaurant = response.data.data[0];
@@ -270,14 +270,14 @@ var elemento = new Vue({
 
         cargaComentarios: function(){
             axios
-            .get('http://netcamareroapi.test/api/comments')
+            .get(localStorage.getItem('URL_API') + 'comments')
             .then((response) => {
                 this.comments = response.data.data
             })
         },
         cargaCities: function(){
             axios
-            .get('http://netcamareroapi.test/api/cities')
+            .get(localStorage.getItem('URL_API') + 'cities')
             .then((response) => {
                 this.cities = response.data.data
                 this.editCity = response.data.data[0];
@@ -285,7 +285,7 @@ var elemento = new Vue({
         },
         cargaCats: function(){
             axios
-            .get('http://netcamareroapi.test/api/categories')
+            .get(localStorage.getItem('URL_API') + 'categories')
             .then((response) => {
                 this.categories = response.data.data
             })
@@ -293,7 +293,7 @@ var elemento = new Vue({
         borra: function(id){
             console.log(id);
             axios
-            .delete('http://netcamareroapi.test/api/restaurants/' + id)
+            .delete(localStorage.getItem('URL_API') + 'restaurants/' + id)
             .then((response) => {
                 this.respuestaBorrado = response.data
                 alert(this.respuestaBorrado);
@@ -310,7 +310,7 @@ var elemento = new Vue({
         borraCiudad: function(id){
             console.log(id);
             axios
-            .delete('http://netcamareroapi.test/api/cities/' + id)
+            .delete(localStorage.getItem('URL_API') + 'cities/' + id)
             .then((response) => {
                 this.respuestaBorrado = response.data
                 alert(this.respuestaBorrado);
@@ -353,7 +353,7 @@ var elemento = new Vue({
         borraComment: function(id){
             console.log(id);
             axios
-            .delete('http://netcamareroapi.test/api/comments/' + id)
+            .delete(localStorage.getItem('URL_API') + 'comments/' + id)
             .then((response) => {
                 this.respuestaBorrado = response.data
                 alert(this.respuestaBorrado);
@@ -386,7 +386,7 @@ var elemento = new Vue({
         },
         guardaCambiosCity: function(id, nombre){
             //CAMBIAR ORDEN
-                    axios.put('http://netcamareroapi.test/api/cities/' + id, {
+                    axios.put(localStorage.getItem('URL_API') + 'cities/' + id, {
                         name: nombre
                     })
                     .then(response => {
@@ -432,7 +432,7 @@ var elemento = new Vue({
         borraCategoria: function(id){
             console.log(id);
             axios
-            .delete('http://netcamareroapi.test/api/categories/' + id)
+            .delete(localStorage.getItem('URL_API') + 'categories/' + id)
             .then((response) => {
                 this.respuestaBorrado = response.data
                 alert(this.respuestaBorrado);
@@ -447,7 +447,7 @@ var elemento = new Vue({
         },
         guardaCambiosCat: function(id, nombre){
             //CAMBIAR ORDEN
-                    axios.put('http://netcamareroapi.test/api/categories/' + id, {
+                    axios.put(localStorage.getItem('URL_API') + 'categories/' + id, {
                         name: nombre
                     })
                     .then(response => {
@@ -474,7 +474,7 @@ var elemento = new Vue({
         },
         //NUEVO RESTAURANTE
         createNew: function(nombre, categoria, ciudad, descripcion, telefono){
-            axios.post('http://netcamareroapi.test/api/restaurants/', {
+            axios.post(localStorage.getItem('URL_API') + 'restaurants', {
                         name: nombre,
                         category: categoria,
                         city: ciudad,
@@ -494,7 +494,7 @@ var elemento = new Vue({
                     });
         },
         createNewCity: function(nombre){
-            axios.post('http://netcamareroapi.test/api/cities/', {
+            axios.post(localStorage.getItem('URL_API') + 'cities', {
                         name: nombre,
                     })
                     .then(response => {
@@ -508,7 +508,7 @@ var elemento = new Vue({
                     });
         },
         createNewCat: function(nombre){
-            axios.post('http://netcamareroapi.test/api/categories/', {
+            axios.post(localStorage.getItem('URL_API') + 'categories', {
                         name: nombre,
                     })
                     .then(response => {
@@ -523,7 +523,7 @@ var elemento = new Vue({
         },
         guardaCambios: function(id, nombre, categoria, ciudad){
             //CAMBIAR ORDEN
-                    axios.put('http://netcamareroapi.test/api/restaurants/' + id, {
+                    axios.put(localStorage.getItem('URL_API') + 'restaurants/' + id, {
                         name: nombre,
                         category: categoria,
                         city: ciudad,

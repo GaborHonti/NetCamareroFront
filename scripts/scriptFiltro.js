@@ -21,7 +21,7 @@ var app = new Vue({
             location.reload();
         },
         cargaFiltro: function(){
-            axios.get('http://netcamareroapi.test/api/' + localStorage.getItem("crit") + '/' + localStorage.getItem("val"))
+            axios.get(localStorage.getItem('URL_API') + localStorage.getItem("crit") + '/' + localStorage.getItem("val"))
             .then(response => {
                 this.rsdo = response.data;
                 console.log(this.rsdo);
