@@ -52,6 +52,9 @@
             <div class="" v-if="menu==0">
                 <h3>¡Bienvenido al DASHBOARD!</h3>
                 <button class="btn btn-success" @click="sendData()">Render Chart</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNewRestaurant">AÑADIR NUEVO RESTAURANTE</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNewCity">AÑADIR NUEVA CIUDAD</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNewCat">AÑADIR NUEVA CATEGORÍA</button>
                 <br>
                 <br>
                 <div class="row">
@@ -91,6 +94,85 @@
                         <canvas id="myChart2" width="400" height="340"></canvas>
                     </div>
                 </div>
+<!-- Modal Añadir Resturante -->
+<div class="modal fade" id="modalNewRestaurant" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Añadir Nuevo Restaurante</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <div class="d-flex justify-content-between">
+                Nombre:<input type="text" v-model="newName">
+            </div>
+            <br>
+            <div class="d-flex justify-content-between">
+                Localidad:<input type="text" disabled  v-model="newCityName">
+            </div>
+            <br>
+            <div class="d-flex justify-content-between">
+            <!--<img :src="previewImage" class="uploading-image" /> -->
+            <input type="file" accept="image/*" @change=uploadImage id="fileInput">
+            </div>
+            <br>
+            <div class="d-flex justify-content-between">
+                ID Localidad: <input type="text" @keyup="buscav3()" v-model="newCity">
+            </div>
+            <br>
+            <div class="d-flex justify-content-between">
+                Categoría:<input type="text" disabled  v-model="newCatName">
+            </div>
+            <br>
+            <div class="d-flex justify-content-between">
+                ID Categoria: <input type="text" @keyup="buscav4()" v-model="newCat">
+            </div>
+            <br>
+            <div class="d-flex justify-content-between">
+                Descripcion: <input type="text" v-model="newDesc">
+            </div>
+            <br>
+            <div class="d-flex justify-content-between">
+                Teléfono: <input type="text" v-model="newTel">
+            </div>
+
+
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success" @click="createNew(newName,newCat,newCity,newDesc,newTel)">Añadir Restaurante</button>
+        </div>
+    </div>
+    </div>
+</div>
+<!-- End of Modal -->
+ <!-- Modal Añadir Ciudad -->
+ <div class="modal fade" id="modalNewCity" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Añadir Nueva Ciudad</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <br>
+            <div class="d-flex justify-content-between">
+                Nombre:<input type="text" v-model="newNameCity">
+            </div>
+            <br>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success" @click="createNewCity(newNameCity)">Añadir Ciudad</button>
+        </div>
+    </div>
+    </div>
+</div>
+<!-- End of Modal -->
 
             </div>
             <div class="" v-if="menu==1">
