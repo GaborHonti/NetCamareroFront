@@ -28,13 +28,15 @@ var elemento = new Vue({
         previewImage: null,
         fileName: '',
         selectedFile: '',
-        finalFileName: ''
+        finalFileName: '',
+        token: ''
     },
     created: function(){
         this.cargaRestaurantes();
         this.cargaCities();
         this.cargaCats();
         this.cargaComentarios();
+        this.token = localStorage.getItem("token"); 
     },
     methods:{
         //GENERA UN RANDOM STRING
@@ -66,7 +68,9 @@ var elemento = new Vue({
         onUpload() {
             const formData = new FormData();
             formData.append('image', this.selectedFile, this.finalFileName);
-            axios.post(localStorage.getItem('URL_API') + 'uploadFile', formData)
+            axios.post(localStorage.getItem('URL_API') + 'uploadFile', { 
+                formData},
+                {headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
         },
         cargaRestaurantes: function(){
             axios
@@ -293,7 +297,8 @@ var elemento = new Vue({
         borra: function(id){
             console.log(id);
             axios
-            .delete(localStorage.getItem('URL_API') + 'restaurants/' + id)
+            .delete(localStorage.getItem('URL_API') + 'restaurants/' + id,
+            { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
             .then((response) => {
                 this.respuestaBorrado = response.data
                 alert(this.respuestaBorrado);
@@ -310,7 +315,8 @@ var elemento = new Vue({
         borraCiudad: function(id){
             console.log(id);
             axios
-            .delete(localStorage.getItem('URL_API') + 'cities/' + id)
+            .delete(localStorage.getItem('URL_API') + 'cities/' + id, 
+            { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
             .then((response) => {
                 this.respuestaBorrado = response.data
                 alert(this.respuestaBorrado);
@@ -353,7 +359,8 @@ var elemento = new Vue({
         borraComment: function(id){
             console.log(id);
             axios
-            .delete(localStorage.getItem('URL_API') + 'comments/' + id)
+            .delete(localStorage.getItem('URL_API') + 'comments/' + id,
+            { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
             .then((response) => {
                 this.respuestaBorrado = response.data
                 alert(this.respuestaBorrado);
@@ -388,7 +395,8 @@ var elemento = new Vue({
             //CAMBIAR ORDEN
                     axios.put(localStorage.getItem('URL_API') + 'cities/' + id, {
                         name: nombre
-                    })
+                    },
+                    { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
                     .then(response => {
                         console.log(response);
                         //this.cargaRestaurantes();
@@ -432,7 +440,8 @@ var elemento = new Vue({
         borraCategoria: function(id){
             console.log(id);
             axios
-            .delete(localStorage.getItem('URL_API') + 'categories/' + id)
+            .delete(localStorage.getItem('URL_API') + 'categories/' + id,
+            { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
             .then((response) => {
                 this.respuestaBorrado = response.data
                 alert(this.respuestaBorrado);
@@ -449,7 +458,8 @@ var elemento = new Vue({
             //CAMBIAR ORDEN
                     axios.put(localStorage.getItem('URL_API') + 'categories/' + id, {
                         name: nombre
-                    })
+                    },
+                    { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
                     .then(response => {
                         console.log(response);
                         for(var i= 0; i < this.categories.length; i++){
@@ -481,7 +491,8 @@ var elemento = new Vue({
                         description: descripcion,
                         phonenumber: telefono,
                         photo: this.finalFileName
-                    })
+                    },
+                    { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
                     .then(response => {
                         console.log(response);
                         this.onUpload();
@@ -496,7 +507,8 @@ var elemento = new Vue({
         createNewCity: function(nombre){
             axios.post(localStorage.getItem('URL_API') + 'cities', {
                         name: nombre,
-                    })
+                    },
+                    { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
                     .then(response => {
                         console.log(response);
                         $('#modalNewCity').modal('hide');
@@ -510,7 +522,8 @@ var elemento = new Vue({
         createNewCat: function(nombre){
             axios.post(localStorage.getItem('URL_API') + 'categories', {
                         name: nombre,
-                    })
+                    },
+                    { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
                     .then(response => {
                         console.log(response);
                         $('#modalNewCat').modal('hide');
@@ -527,7 +540,8 @@ var elemento = new Vue({
                         name: nombre,
                         category: categoria,
                         city: ciudad,
-                    })
+                    },
+                    { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
                     .then(response => {
                         console.log(response);
                         for(var i= 0; i < this.datos.length; i++){

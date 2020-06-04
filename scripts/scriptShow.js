@@ -24,7 +24,9 @@ var app = new Vue({
                     'Authorization':'Bearer '+this.token}})
                 .then((response) => {
                 this.miID = response.data.id;
-                axios.get(localStorage.getItem('URL_API') + 'restaurants/esFav/'  + this.miID + '/' + this.info.id)
+                axios.get(localStorage.getItem('URL_API') + 'restaurants/esFav/'  + this.miID + '/' + this.info.id, {
+                    headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }
+                })
                 .then(response => {
                     this.esFav = response.data;
                 })
@@ -44,7 +46,8 @@ var app = new Vue({
             axios.post(localStorage.getItem('URL_API') + 'favs/', {
                user: this.miID,
                restaurant: this.info.id
-            })
+            },
+            { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
             .then(response => {
                 console.log(response);
                 this.esFav = '1';
@@ -57,6 +60,7 @@ var app = new Vue({
 
         quitafav: function(){
             axios.delete(localStorage.getItem('URL_API') + 'restaurants/borraFav/' + this.miID + "/" + this.info.id, {
+                 headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }
              })
              .then(response => {
                  console.log(response);
@@ -73,7 +77,8 @@ var app = new Vue({
                user: this.miID,
                restaurant: this.info.id,
                content: this.commentContent
-            })
+            },
+            { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
             .then(response => {
                 console.log(response);
                 location.reload();

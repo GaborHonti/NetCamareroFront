@@ -1,1 +1,1 @@
-localStorage.setItem('URL_API' , 'https://netcamarero-api.herokuapp.com/api/');
+localStorage.setItem('URL_API' , 'http://netcamareroapi.test/api/');
