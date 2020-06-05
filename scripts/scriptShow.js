@@ -93,8 +93,8 @@ var app = new Vue({
 
             axios.post(localStorage.getItem('URL_API') + 'restaurants/like',
                 /* Aqui va el contenido a enviar en el PUT */
-                { "user": this.miID ,
-                  "restaurant" : this.info.id},
+                { user: this.miID ,
+                  restaurant : this.info.id},
                 { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token } })
                 .then(response => {
                     console.log(response)
