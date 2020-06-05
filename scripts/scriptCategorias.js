@@ -27,7 +27,14 @@ var app = new Vue({
         salir: function(){
             localStorage.removeItem("token");
             location.reload();
-        }
+        },
+        buscaCat(category){
+            //obtenemos el valor del cat
+            //guardamos los valores para poder trabajarlos posteriormente
+            localStorage.setItem("crit", 'categoria');
+            localStorage.setItem("val", category);
+            location.replace('/busca');
+        },
     },
    
 })
