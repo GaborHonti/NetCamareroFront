@@ -21,7 +21,7 @@ var app = new Vue({
         getRestaurantes: function(page){
             axios
             .get(localStorage.getItem('URL_API') + 'categories')
-            .then(response => {(this.message = response.data)
+            .then(response => {(this.message = response.data.data)
           })
         },
         salir: function(){
