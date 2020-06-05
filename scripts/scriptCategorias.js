@@ -33,7 +33,7 @@ var app = new Vue({
             //guardamos los valores para poder trabajarlos posteriormente
             localStorage.setItem("crit", 'categoria');
             localStorage.setItem("val", category);
-            location.replace('/busca');
+            location.replace('pages/busca.html');
         },
     },
    
