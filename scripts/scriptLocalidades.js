@@ -26,7 +26,15 @@ var app = new Vue({
         salir: function(){
             localStorage.removeItem("token");
             location.reload();
-        }
+        },
+        buscaLoc(city){
+            //obtenemos el valor del loc
+            var intro = this.valor;
+            //guardamos los valores para poder trabajarlos posteriormente
+            localStorage.setItem("crit", 'localidad');
+            localStorage.setItem("val", city);
+            location.replace('busca.html');
+        },
     },
    
 })
