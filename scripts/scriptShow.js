@@ -43,7 +43,7 @@ var app = new Vue({
     },
     methods: {
         guardaFav: function(){
-            axios.post(localStorage.getItem('URL_API') + 'favs/', {
+            axios.post(localStorage.getItem('URL_API') + 'favs', {
                user: this.miID,
                restaurant: this.info.id
             },
