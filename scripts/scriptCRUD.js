@@ -512,7 +512,6 @@ var elemento = new Vue({
                     { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
                     .then(response => {
                         console.log(response);
-                        this.onUpload();
                         $('#modalNewRestaurant').modal('hide');
                         this.cargaRestaurantes();
                     })
@@ -520,6 +519,8 @@ var elemento = new Vue({
                         console.log(error);
                         alert("fallo al crear restaurante, faltan datos");
                     });
+
+                    this.onUpload();
         },
         createNewCity: function(nombre){
             axios.post(localStorage.getItem('URL_API') + 'cities', {
