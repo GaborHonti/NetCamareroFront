@@ -62,7 +62,7 @@
                 <h1 class="generalFont titleAll">Resultados de Búsqueda para Categorías</h1>
                 <div class="row">
                     <div v-for="(item, index) in message" class="col-12 col-md-4 mb-3 mt-3 centrar">
-                    <h3 class="fuente">{{message.name}}</h3>
+                    <h3 class="fuente">{{item.name}}</h3>
                     <button class="btn btn-danger mt-3" @click="moveURL(item.id)">Ver Restaurantes de Categoría</button>
                     </div>
                 </div>
