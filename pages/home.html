@@ -63,23 +63,15 @@
              <div class="col-12 portada">
              <h3 class="catch">¿Tienes hambre? ¿Dónde quieres comer?</h3>
                 <p class="afterCatch">¡Elige entre varios restaurantes de la Vega Baja!</p>
+
+                    <a href="index.html"><button type="button" class="btn btn-danger">Ver Todos los Restaurantes</button></a>
+                    <a href="localidades.html"><button type="button" class="btn btn-danger">Ver Todas las Categorías</button></a>
+                    <a href="categorias.html"><button type="button" class="btn btn-danger">Ver Todas las Localidades</button></a>
+
              </div>
         </div>
         <div class="row portada">
-            <div class="col-12 inputCont">
-                <span class="span">Buscar Según:</span>
-                <select id="selectCriterio" name="Criterios">
-
-                    <option value="localidad">Localidad</option>
-
-                    <option value="categoria">Categoría</option>
-
-                    <option value="nombre">Nombre</option>
-
-                </select>
-                <input type="text" class="inputText" v-model="valor">
-                <a href="busca.html"><button type="button" class="btn btn-danger" @click="busca()">Buscar</button></a>
-            </div>
+            
         </div>
     </div>
     <div class="container-fluid mainSuggestions">
@@ -87,29 +79,7 @@
             <div class="col-12 portada">
                 <h3 class="catch3">¿No Sabes Qué Elegir?</h3>
                 <p class="afterCatch">¡Echalé un vistazo a nuestras categorías y localidades!</p>
-                <a href="index.html"><button type="button" class="btn btn-danger">Ver Todos los Restaurantes</button></a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <h6 class="catch4">Nuestras Categorías:</h6>
-                <!-- VFOR DE TODAS LAS CATEGORÍAS -->
-                    <div v-for="cat in categorias" class="d-flex justify-content-between col-12">
-                        <p class="catch5">
-                            {{cat.name}}
-                        </p>
-                        <a href="busca.html"><button type="button" class="btn btn-danger" @click="buscaCat(cat.name)">Buscar</button></a>
-                    </div>
-            </div>
-            <div class="col-12 col-md-6">
-                <h6 class="catch4">Nuestras Localidades:</h6>
-                <!-- VFOR DE TODAS LAS LOCALIDADES -->
-                    <div v-for="loc in localidades" class="d-flex justify-content-between col-12">
-                        <p class="catch5">
-                            {{loc.name}}
-                        </p>
-                        <a href="busca.html"><button type="button" class="btn btn-danger" @click="buscaLoc(loc.name)">Buscar</button></a>
-                    </div>
+                
             </div>
         </div>
     </div>
@@ -125,4 +95,45 @@
 
 </body>
 </html>
+
+<!--
+    <div class="col-12 inputCont">
+                <span class="span">Buscar Según:</span>
+                <select id="selectCriterio" name="Criterios">
+
+                    <option value="localidad">Localidad</option>
+
+                    <option value="categoria">Categoría</option>
+
+                    <option value="nombre">Nombre</option>
+
+                </select>
+                <input type="text" class="inputText" v-model="valor">
+                <a href="busca.html"><button type="button" class="btn btn-danger" @click="busca()">Buscar</button></a>
+            </div>
+
+            <div class="row">
+            <div class="col-12 col-md-6">
+                <h6 class="catch4">Nuestras Categorías:</h6>
+               
+                <div v-for="cat in categorias" class="d-flex justify-content-between col-12">
+                    <p class="catch5">
+                        {{cat.name}}
+                    </p>
+                    <a href="busca.html"><button type="button" class="btn btn-danger" @click="buscaCat(cat.name)">Buscar</button></a>
+                </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <h6 class="catch4">Nuestras Localidades:</h6>
+             VFOR DE TODAS LAS LOCALIDADES
+                <div v-for="loc in localidades" class="d-flex justify-content-between col-12">
+                    <p class="catch5">
+                        {{loc.name}}
+                    </p>
+                    <a href="busca.html"><button type="button" class="btn btn-danger" @click="buscaLoc(loc.name)">Buscar</button></a>
+                </div>
+        </div>
+    </div>
+
+-->
 
