@@ -484,10 +484,27 @@ var elemento = new Vue({
         },
         //NUEVO RESTAURANTE
         createNew: function(nombre, categoria, ciudad, descripcion, telefono){
+
+            var idCity;
+            var idCat;
+
+            for(var i = 0; i < this.cities.length; i++){
+                if(this.cities[i].name == ciudad){
+                    idCity = this.cities[i].id;
+                }
+            }
+
+            for(var i = 0; i < this.categories.length; i++){
+                if(this.categories[i].name == categoria){
+                    idCat = this.categories[i].id;
+                }
+            }
+
+
             axios.post(localStorage.getItem('URL_API') + 'restaurants', {
                         name: nombre,
-                        category: categoria,
-                        city: ciudad,
+                        category: idCat,
+                        city: idCity,
                         description: descripcion,
                         phonenumber: telefono,
                         photo: this.finalFileName
