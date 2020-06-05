@@ -68,8 +68,8 @@ var elemento = new Vue({
         onUpload() {
             const formData = new FormData();
             formData.append('image', this.selectedFile, this.finalFileName);
-            axios.post(localStorage.getItem('URL_API') + 'uploadFile', { 
-                formData},
+            axios.post(localStorage.getItem('URL_API') + 'uploadFile',
+                formData,
                 {headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
         },
         cargaRestaurantes: function(){
