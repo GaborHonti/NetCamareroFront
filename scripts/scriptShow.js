@@ -17,6 +17,8 @@ var app = new Vue({
           .get(localStorage.getItem('URL_API')+'restaurants/'+this.id)
           .then(response => {
               this.info = response.data.data;
+              localStorage.setItem('lat' , this.info.latitud);
+              localStorage.setItem('long' , this.info.longitud);
               this.cargaComments();
               if(this.token != null){
               axios.get(localStorage.getItem('URL_API') +'userinfo', {
@@ -36,6 +38,8 @@ var app = new Vue({
                     this.esFav = -1;
                 }
           })
+
+          
           //alert(this.esFav);
     },
     created(){
