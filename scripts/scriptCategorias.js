@@ -3,6 +3,7 @@ var app = new Vue({
     data: {
       message: 'Hello Vue!',
       logged: 0,
+      esAdmin: 0
     },
     created(){
         this.getRestaurantes(1);
@@ -10,6 +11,7 @@ var app = new Vue({
         if(token != null){
            this.logged = 1; //esta logged el user
         }
+        this.esAdmin = localStorage.getItem('esAdmin');
     },
     /*mounted () {
         axios
@@ -26,6 +28,7 @@ var app = new Vue({
         },
         salir: function(){
             localStorage.removeItem("token");
+            localStorage.removeItem("esAdmin");
             location.reload();
         },
         buscaCat(category){

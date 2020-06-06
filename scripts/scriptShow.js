@@ -8,7 +8,8 @@ var app = new Vue({
       token: '',
       comments: [],
       commentContent: '',
-      inicializado: false
+      inicializado: false,
+      esAdmin: 0
     },
     mounted () {
         //LOGIC ---> not logged: -1, not fav= 0, yes fav = 1
@@ -44,6 +45,7 @@ var app = new Vue({
     },
     created(){
         this.id = localStorage.getItem('id');
+        this.esAdmin = localStorage.getItem('esAdmin');
     },
     methods: {
         guardaFav: function(){
@@ -127,6 +129,7 @@ var app = new Vue({
         },
         salir: function(){
             localStorage.removeItem("token");
+            localStorage.removeItem("esAdmin");
             location.reload();
         },
         cargaMapa: function(){

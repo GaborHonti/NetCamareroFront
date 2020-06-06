@@ -4,7 +4,8 @@ var app = new Vue({
         logged: 0 , //por defecto no esta logueado
         valor: '',
         categorias: [],
-        localidades: []
+        localidades: [],
+        esAdmin:0
     },
     created () { //estas logueado?
        token = localStorage.getItem("token");
@@ -13,10 +14,12 @@ var app = new Vue({
        }
        this.cargaCategorias();
        this.cargaLocalidades();
+       this.esAdmin = localStorage.getItem('esAdmin');
     },
     methods: {
         salir: function(){
             localStorage.removeItem("token");
+            localStorage.removeItem("esAdmin");
             location.reload();
         },
         //Lógica para buscar: >>>> guardamos en el localstorage el criterio y el valor, para en la siguiente página hacer la consulta.

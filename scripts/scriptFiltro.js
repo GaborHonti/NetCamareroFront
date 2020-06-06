@@ -4,7 +4,8 @@ var app = new Vue({
         logged: 0 , //por defecto no esta logueado
         valor: '',
         rsdo : [],
-        queEs: ''
+        queEs: '',
+        esAdmin: 0
     },
     created () {
         this.cargaFiltro();
@@ -14,10 +15,12 @@ var app = new Vue({
             this.logged = 1; //esta logged el user
         }
         this.queEs = localStorage.getItem("val");
+        this.esAdmin = localStorage.getItem('esAdmin');
     },
     methods: {
         salir: function(){
             localStorage.removeItem("token");
+            localStorage.removeItem("esAdmin");
             location.reload();
         },
         cargaFiltro: function(){

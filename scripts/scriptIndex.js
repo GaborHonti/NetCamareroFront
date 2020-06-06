@@ -3,6 +3,7 @@ var app = new Vue({
     data: {
       message: 'Hello Vue!',
       logged: 0,
+      esAdmin: 0,
       pagination:{
         'total': 0,
         'current_page': 0,
@@ -18,6 +19,7 @@ var app = new Vue({
         if(token != null){
            this.logged = 1; //esta logged el user
         }
+        this.esAdmin = localStorage.getItem('esAdmin');
     },
     /*mounted () {
         axios
@@ -43,6 +45,7 @@ var app = new Vue({
         },
         salir: function(){
             localStorage.removeItem("token");
+            localStorage.removeItem("esAdmin");
             location.reload();
         }
     },

@@ -5,7 +5,8 @@ var app = new Vue({
       token: '',
       favs: [],
       logged: 0,
-      nombreNew: ''
+      nombreNew: '',
+      esAdmin: 0
     },
     created() {
         $('.editP').click();
@@ -40,6 +41,8 @@ var app = new Vue({
                     'Authorization':'Bearer '+this.token}})
             .then((response) => {
                 this.info = response.data
+                localStorage.setItem('esAdmin' , this.info.esAdmin);
+                this.esAdmin = localStorage.getItem('esAdmin');
                 axios.get(localStorage.getItem('URL_API') + 'myFavs/' + this.info.id, {
                 headers: {
                     'Accept':'application/json',
@@ -75,6 +78,7 @@ var app = new Vue({
         },*/
         salir: function(){
             localStorage.removeItem("token");
+            localStorage.removeItem("esAdmin");
             location.reload();
         },
         moveURL : function(id){
