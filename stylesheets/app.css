@@ -400,3 +400,7 @@ textarea{
     margin-left: 2%;
     margin-top: 2%;
 }
+
+#mapid { 
+    height: 300px;
+}
