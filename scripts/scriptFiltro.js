@@ -5,7 +5,8 @@ var app = new Vue({
         valor: '',
         rsdo : [],
         queEs: '',
-        esAdmin: 0
+        esAdmin: 0,
+        imgURL: ''
     },
     created () {
         this.cargaFiltro();
@@ -16,6 +17,7 @@ var app = new Vue({
         }
         this.queEs = localStorage.getItem("val");
         this.esAdmin = localStorage.getItem('esAdmin');
+        this.imgURL = localStorage.getItem('URL_API_IMG');
     },
     methods: {
         salir: function(){

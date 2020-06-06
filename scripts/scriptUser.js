@@ -6,7 +6,8 @@ var app = new Vue({
       favs: [],
       logged: 0,
       nombreNew: '',
-      esAdmin: 0
+      esAdmin: 0,
+      imgURL: ''
     },
     created() {
         $('.editP').click();
@@ -18,6 +19,7 @@ var app = new Vue({
         }else {
             this.info = "sin acceso";
         }
+        this.imgURL = localStorage.getItem('URL_API_IMG');
     },
     methods: {
         comprobarExistenciaToken: function(){

@@ -89,7 +89,7 @@
                         <div v-for="fav in favs">
                             <h1 class="restaurantTitle">{{fav.restaurant.name}}</h1>
                             <div class="flexbody">
-                                <img :src="'https://safe-sierra-54506.herokuapp.com/' + fav.restaurant.photo" class="favImg">
+                                <img :src="imgURL + fav.restaurant.photo" class="favImg">
                                 <p class="desc wColor">{{fav.restaurant.description}} <br>
                                 <button class="btn btn-danger mt-3" @click="moveURL(fav.restaurant.id)">Ver Restaurante</button>
                                 </p>

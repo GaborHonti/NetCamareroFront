@@ -4,6 +4,7 @@ var app = new Vue({
       message: 'Hello Vue!',
       logged: 0,
       esAdmin: 0,
+      imgUTL: '',
       pagination:{
         'total': 0,
         'current_page': 0,
@@ -20,6 +21,7 @@ var app = new Vue({
            this.logged = 1; //esta logged el user
         }
         this.esAdmin = localStorage.getItem('esAdmin');
+        this.imgURL = localStorage.getItem('URL_API_IMG');
     },
     /*mounted () {
         axios

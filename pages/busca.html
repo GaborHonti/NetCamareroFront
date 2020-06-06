@@ -61,7 +61,7 @@
                     <div class="row" v-if="rsdo != 'no'">
                         <div v-for="(item, index) in rsdo" class="col-12 col-md-4 mb-3 mt-3 centrar">
                         <h3 class="fuente">{{item.name}}</h3>
-                        <img :src="'https://safe-sierra-54506.herokuapp.com/' + item.photo" class="imgrest">
+                        <img :src="imgURL + item.photo" class="imgrest">
                         <button class="btn btn-danger mt-3" @click="moveURL(item.id)">Ver Restaurante</button>
                         </div>
                     </div>
