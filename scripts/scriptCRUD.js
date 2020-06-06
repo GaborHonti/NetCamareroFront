@@ -29,7 +29,9 @@ var elemento = new Vue({
         fileName: '',
         selectedFile: '',
         finalFileName: '',
-        token: ''
+        token: '',
+        latitud: 0,
+        longitud: 0
     },
     created: function(){
         this.cargaRestaurantes();
@@ -483,7 +485,7 @@ var elemento = new Vue({
             $('#modalEditarCat').modal('hide');
         },
         //NUEVO RESTAURANTE
-        createNew: function(nombre, categoria, ciudad, descripcion, telefono){
+        createNew: function(nombre, categoria, ciudad, descripcion, telefono, lat, long){
 
             var idCity;
             var idCat;
@@ -507,7 +509,9 @@ var elemento = new Vue({
                         city: idCity,
                         description: descripcion,
                         phonenumber: telefono,
-                        photo: this.finalFileName
+                        photo: this.finalFileName,
+                        latitud: lat,
+                        longitud: long
                     },
                     { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
                     .then(response => {

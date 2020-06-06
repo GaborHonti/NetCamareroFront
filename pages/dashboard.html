@@ -153,11 +153,21 @@
                 Teléfono: <input type="text" v-model="newTel">
             </div>
 
+            <!-- Latitud y longitud -->
+            <br>
+            <div class="d-flex justify-content-between">
+                Latitud: <input type="number" v-model.number="latitud">
+            </div>
+            <br>
+            <div class="d-flex justify-content-between">
+                Longitud: <input type="number" v-model.number="longitud">
+            </div>
+
 
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-success" @click="createNew(newName,newCat,newCity,newDesc,newTel)">Añadir Restaurante</button>
+        <button type="button" class="btn btn-success" @click="createNew(newName,newCat,newCity,newDesc,newTel,latitud,longitud)">Añadir Restaurante</button>
         </div>
     </div>
     </div>
@@ -247,6 +257,12 @@
                             <th class="th-sm desaparece">Description
 
                             </th>
+                            <th class="th-sm desaparece">Latitud
+
+                            </th>
+                            <th class="th-sm desaparece">Longitud
+
+                            </th>
                             <th class="th-sm">Borrar
 
                             </th>
@@ -265,65 +281,92 @@
                                 <td class="desaparece">{{dato.phonenumber}}</td>
                                 <td class="desaparece">{{dato.likes}}</td>
                                 <td class="desaparece">{{dato.description}}</td>
+                                <td class="desaparece">{{dato.latitud}}</td>
+                                <td class="desaparece">{{dato.longitud}}</td>
                                 <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalBorrar" @click="rellenaborra(dato.id)">Borrar</button></td>
                                 <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalEditar" @click="rellenainput(dato.id)">Editar</button></td>
                             </tr>
                         </tbody>
                     </table>
-                    <!-- Modal Añadir Resturante -->
-                    <div class="modal fade" id="modalNewRestaurant" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Añadir Nuevo Restaurante</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="d-flex justify-content-between">
-                                    Nombre:<input type="text" v-model="newName">
-                                </div>
-                                <br>
-                                <div class="d-flex justify-content-between">
-                                    Localidad:<input type="text" disabled  v-model="newCityName">
-                                </div>
-                                <br>
-                                <div class="d-flex justify-content-between">
-                                <!--<img :src="previewImage" class="uploading-image" /> -->
-                                <input type="file" accept="image/*" @change=uploadImage id="fileInput">
-                                </div>
-                                <br>
-                                <div class="d-flex justify-content-between">
-                                    ID Localidad: <input type="text" @keyup="buscav3()" v-model="newCity">
-                                </div>
-                                <br>
-                                <div class="d-flex justify-content-between">
-                                    Categoría:<input type="text" disabled  v-model="newCatName">
-                                </div>
-                                <br>
-                                <div class="d-flex justify-content-between">
-                                    ID Categoria: <input type="text" @keyup="buscav4()" v-model="newCat">
-                                </div>
-                                <br>
-                                <div class="d-flex justify-content-between">
-                                    Descripcion: <input type="text" v-model="newDesc">
-                                </div>
-                                <br>
-                                <div class="d-flex justify-content-between">
-                                    Teléfono: <input type="text" v-model="newTel">
-                                </div>
+                   <!-- Modal Añadir Resturante -->
+<div class="modal fade" id="modalNewRestaurant" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Añadir Nuevo Restaurante</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <div class="d-flex justify-content-between">
+                Nombre:<input type="text" v-model="newName">
+            </div>
+            <br>
+            <!--
+              <div class="d-flex justify-content-between">
+                Localidad:<input type="text" disabled  v-model="newCityName">
+            </div>  
+            -->
+            <div class="d-flex justify-content-between">
+                Localidad: <select name="loces" id="loces" v-model="newCity">
+                    <option v-for="city in cities" :value="city.name">{{city.name}}</option>
+                </select>
+            </div>
+            <br>
+            <div class="d-flex justify-content-between">
+                Categoría: <select name="cates" id="cates" v-model="newCat">
+                    <option v-for="cat in categories" :value="cat.name">{{cat.name}}</option>
+                </select>
+            </div>
+            <br>
+            <div class="d-flex justify-content-between">
+            <!--<img :src="previewImage" class="uploading-image" /> -->
+            <input type="file" accept="image/*" @change=uploadImage id="fileInput">
+            </div>
+            <br>
+            <!--
+            <div class="d-flex justify-content-between">
+                ID Localidad: <input type="text" @keyup="buscav3()" v-model="newCity">
+            </div>
+            <br>
+            <div class="d-flex justify-content-between">
+                Categoría:<input type="text" disabled  v-model="newCatName">
+            </div>
+            <br>
+            <div class="d-flex justify-content-between">
+                ID Categoria: <input type="text" @keyup="buscav4()" v-model="newCat">
+            </div>
+            -->
+            <br>
+            <div class="d-flex justify-content-between">
+                Descripcion: <input type="text" v-model="newDesc">
+            </div>
+            <br>
+            <div class="d-flex justify-content-between">
+                Teléfono: <input type="text" v-model="newTel">
+            </div>
+
+            <!-- Latitud y longitud -->
+            <br>
+            <div class="d-flex justify-content-between">
+                Latitud: <input type="number" v-model="latitud">
+            </div>
+            <br>
+            <div class="d-flex justify-content-between">
+                Longitud: <input type="number" v-model="longitud">
+            </div>
 
 
-                            </div>
-                            <div class="modal-footer">
-                            <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-success" @click="createNew(newName,newCat,newCity,newDesc,newTel)">Añadir Restaurante</button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    <!-- End of Modal -->
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success" @click="createNew(newName,newCat,newCity,newDesc,newTel)">Añadir Restaurante</button>
+        </div>
+    </div>
+    </div>
+</div>
+<!-- End of Modal -->
                     <!-- Modal Editar Resturante -->
                     <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
