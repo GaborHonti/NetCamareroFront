@@ -99,7 +99,9 @@
                         <button v-if="esFav == 1" class="btn btn-success" @click="quitafav()">¡Ya está en los Favoritos! Click para quitarlo</button>
                         <button v-if="esFav == -1" class="btn btn-warning">Logueate para añadir a Favoritos</button>
                         <button v-if="esFav == -1" class="btn btn-warning">Logueate para darle like</button>
-                        <button class="btn btn-success" @click="cargaMapa()">Cargar Mapa</button>
+                        
+                        <button id="mapaLoad" class="btn btn-primary" @click="cargaMapa()">Ver Dirección</button>
+                        
                     </div>
                 </div>
 
@@ -152,3 +154,4 @@
 <script src="../scripts/scriptShow.js"></script>
 </body>
 </html>
+

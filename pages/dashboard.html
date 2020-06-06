@@ -347,21 +347,21 @@
                 Teléfono: <input type="text" v-model="newTel">
             </div>
 
-            <!-- Latitud y longitud -->
-            <br>
-            <div class="d-flex justify-content-between">
-                Latitud: <input type="number" v-model="latitud">
-            </div>
-            <br>
-            <div class="d-flex justify-content-between">
-                Longitud: <input type="number" v-model="longitud">
-            </div>
+             <!-- Latitud y longitud -->
+             <br>
+             <div class="d-flex justify-content-between">
+                 Latitud: <input type="number" v-model.number="latitud">
+             </div>
+             <br>
+             <div class="d-flex justify-content-between">
+                 Longitud: <input type="number" v-model.number="longitud">
+             </div>
 
 
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-success" @click="createNew(newName,newCat,newCity,newDesc,newTel)">Añadir Restaurante</button>
+        <button type="button" class="btn btn-success" @click="createNew(newName,newCat,newCity,newDesc,newTel,latitud,longitud)">Añadir Restaurante</button>
         </div>
     </div>
     </div>
@@ -387,26 +387,34 @@
                                 </div>
                                 <br>
                                 <div class="d-flex justify-content-between">
-                                    Localidad:<input type="text" disabled  v-model="editRestaurant.city.name">
+                                    Localidad: <select name="loces" id="loces" v-model="editRestaurant.city.id">
+                                        <option v-for="city in cities" :value="city.id">{{city.name}}</option>
+                                    </select>
                                 </div>
                                 <br>
                                 <div class="d-flex justify-content-between">
-                                    ID Localidad: <input type="text" @keyup="busca()" v-model="buscaIdCity">
+                                    Categoría: <select name="cates" id="cates" v-model="editRestaurant.category.id">
+                                        <option v-for="cat in categories" :value="cat.id">{{cat.name}}</option>
+                                    </select>
                                 </div>
                                 <br>
                                 <div class="d-flex justify-content-between">
-                                    Categoría:<input type="text" disabled  v-model="editRestaurant.category.name">
-                                </div>
-                                <br>
-                                <div class="d-flex justify-content-between">
-                                    ID Categoria: <input type="text" @keyup="buscav2()" v-model="buscaIdCat">
-                                </div>
+                                    Descripción: <textarea name="modD" id="modD" cols="30" rows="10" v-model="editRestaurant.description">
 
-
+                                    </textarea>
+                                </div>
+                                <br>
+                                <div class="d-flex justify-content-between">
+                                    Latitud:<input type="number" v-model.number="editRestaurant.latitud">
+                                </div>
+                                <br>
+                                <div class="d-flex justify-content-between">
+                                    Longitud:<input type="number" v-model.number="editRestaurant.longitud">
+                                </div>
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-success" @click="guardaCambios(editRestaurant.id,editRestaurant.name,editRestaurant.category.id,editRestaurant.city.id)">Guardar Cambios</button>
+                            <button type="button" class="btn btn-success" @click="guardaCambios(editRestaurant.id,editRestaurant.name,editRestaurant.category.id,editRestaurant.city.id,editRestaurant.description)">Guardar Cambios</button>
                             </div>
                         </div>
                         </div>

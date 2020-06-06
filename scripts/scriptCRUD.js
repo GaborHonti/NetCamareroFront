@@ -502,6 +502,7 @@ var elemento = new Vue({
                 }
             }
 
+            alert(lat + ' , ' + long)
 
             axios.post(localStorage.getItem('URL_API') + 'restaurants', {
                         name: nombre,
@@ -556,26 +557,28 @@ var elemento = new Vue({
                         alert("fallo al crear categoria, faltan datos");
                     });
         },
-        guardaCambios: function(id, nombre, categoria, ciudad){
+        guardaCambios: function(id, nombre, categoria, ciudad, desc){
             //CAMBIAR ORDEN
                     axios.put(localStorage.getItem('URL_API') + 'restaurants/' + id, {
                         name: nombre,
                         category: categoria,
                         city: ciudad,
+                        description: desc
                     },
                     { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
                     .then(response => {
                         console.log(response);
                         for(var i= 0; i < this.datos.length; i++){
-                if(id == this.datos[i].id){
-                    //alert("update");
-                    this.datos[i].name = nombre;
-                    //this.datos[i].category.name = categoria;
-                    //this.datos[i].city.id = ciudad;
-                    alert(ciudad);
-                    break;
-                }
-            }
+                            if(id == this.datos[i].id){
+                                //alert("update");
+                                this.datos[i].name = nombre;
+                                //this.datos[i].category.name = categoria;
+                                //this.datos[i].city.id = ciudad;
+                                alert(ciudad);
+                                break;
+                            }
+                        }
+                        this.cargaRestaurantes();
                     })
                     .catch(error => {
                         console.log(error);
