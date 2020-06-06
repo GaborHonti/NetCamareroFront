@@ -557,13 +557,15 @@ var elemento = new Vue({
                         alert("fallo al crear categoria, faltan datos");
                     });
         },
-        guardaCambios: function(id, nombre, categoria, ciudad, desc){
+        guardaCambios: function(id, nombre, categoria, ciudad, desc, lat, long){
             //CAMBIAR ORDEN
                     axios.put(localStorage.getItem('URL_API') + 'restaurants/' + id, {
                         name: nombre,
                         category: categoria,
                         city: ciudad,
-                        description: desc
+                        description: desc,
+                        latitud: lat,
+                        longitud: long
                     },
                     { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
                     .then(response => {
