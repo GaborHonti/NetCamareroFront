@@ -47,14 +47,14 @@
         <a href="home.html"><button style="cursor:pointer" class="btn btn-danger text-center generalFont">Volver al Inicio</button></a>
     </div>
 
-    <div class="content">
+    <div class="content" v-if="esAdmin == 1">
         <div class="container-fluid mt-3">
             <div class="" v-if="menu==0">
                 <h3>¡Bienvenido al DASHBOARD!</h3>
                 <button class="btn btn-success" @click="sendData()">Render Chart</button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNewRestaurant">AÑADIR NUEVO RESTAURANTE</button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNewCity">AÑADIR NUEVA CIUDAD</button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNewCat">AÑADIR NUEVA CATEGORÍA</button>
+                <button type="button" class="btn btn-primary mb-4 mb-md-0" data-toggle="modal" data-target="#modalNewRestaurant">AÑADIR NUEVO RESTAURANTE</button>
+                <button type="button" class="btn btn-primary mb-4 mb-md-0" data-toggle="modal" data-target="#modalNewCity">AÑADIR NUEVA CIUDAD</button>
+                <button type="button" class="btn btn-primary mb-4 mb-md-0" data-toggle="modal" data-target="#modalNewCat">AÑADIR NUEVA CATEGORÍA</button>
                 <br>
                 <br>
                 <div class="row">
@@ -752,6 +752,10 @@
 <!-- End of CONTAINER-FLUID -->
     </div>
 <!-- End of CONTENT -->
+    <div class="content" v-else>
+        <h1>Parece que no tienes permisos para estar aquí!</h1>
+        <a href="home.html"><button style="cursor:pointer" class="btn btn-danger text-center generalFont">Volver al Inicio</button></a>
+    </div>
 
 </div>
 <!-- End of APP -->

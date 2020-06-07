@@ -31,7 +31,8 @@ var elemento = new Vue({
         finalFileName: '',
         token: '',
         latitud: 0,
-        longitud: 0
+        longitud: 0,
+        esAdmin: 0
     },
     created: function(){
         this.cargaRestaurantes();
@@ -39,6 +40,7 @@ var elemento = new Vue({
         this.cargaCats();
         this.cargaComentarios();
         this.token = localStorage.getItem("token"); 
+        this.esAdmin = localStorage.getItem('esAdmin');
     },
     methods:{
         //GENERA UN RANDOM STRING
