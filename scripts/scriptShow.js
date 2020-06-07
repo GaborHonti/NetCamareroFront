@@ -89,7 +89,7 @@ var app = new Vue({
             { headers: { 'Accept': 'application/json', 'Authorization': 'Bearer ' + this.token }})
             .then(response => {
                 console.log(response);
-                location.reload();
+                this.cargaComments();
             })
             .catch(error => {
                 console.log(error);
